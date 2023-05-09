@@ -1,0 +1,22 @@
+{
+  "ns" : 10,
+  "osx" : 100,
+  "osz" : 100,
+  "dsx" : 100,
+  "nr" : 200,
+  "orx" : 0,
+  "orz" : 0,
+  "drx" : 10,
+
+  "prop" : "ssf",
+  "ntaylor" : 1,
+  "nref" : 1,
+  "tap" : 100,
+  "fmin" : 5,
+  "fmax" : 40,
+  "nfreq" : 2,
+  "ng" : 1,
+  "cmap" : 0,
+  "tau" : 0,
+  "onepass" : 0
+}

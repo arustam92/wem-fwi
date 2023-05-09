@@ -1,0 +1,78 @@
+From debian:latest
+LABEL maintainer="Rustam Akhmadiev"  
+LABEL email="akhmarust@sep.stanford.edu"
+
+RUN apt-get -y update &&\
+    apt-get -y  install g++ python3-numpy git make gcc libboost-all-dev  libboost-dev &&\
+    apt-get -y install  cmake python3-dev python3-pytest python3-numpy-dbg libtbb-dev&& \
+    apt-get -y  install gfortran libfftw3-3 libfftw3-dev python3-pip libssl-dev &&\
+    apt-get -y install flex libxaw7-dev  &&\
+  apt-get -y clean
+
+ARG sepflags="-O3 -ffast-math -DNDEBUG -DBOOST_DISABLE_ASSERTS -funroll-loops"
+
+RUN git clone http://zapad.stanford.edu/SEP-external/sep-iolibs.git /opt/sep-io/src && \
+    mkdir /opt/sep-io/build && \
+    cd /opt/sep-io/src && git submodule update --init --recursive && \
+    cd external/genericIO && git checkout rustam-dev && \
+    cd /opt/sep-io/src && git add . &&\
+    cd /opt/sep-io/build &&\
+    cmake -DCMAKE_INSTALL_PREFIX=/opt/SEP -DCMAKE_CXX_FLAGS="$sepflags" \
+    -DBUILD_TEST=ON -DBUILD_SEP=ON -DBUILD_SEGYIO=OFF -DBUILD_GCP=OFF -DBUILD_UTIL=OFF \
+    -DBENCHMARK_DOWNLOAD_DEPENDENCIES=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_PYTHON=ON ../src &&\
+    cd /opt/sep-io/build && \
+    make -j8 install
+
+RUN git clone --branch rustam-dev http://cees-gitlab.stanford.edu/ettore88/python-solver.git /opt/python-solver
+
+RUN pip install notebook &&\
+    pip install h5py &&\
+    pip install numba &&\
+    pip install scipy &&\
+    pip install -U matplotlib
+
+RUN apt-get -y update &&\
+    apt-get -y install vim
+
+RUN cd /opt && \
+    apt-get -y install wget &&\
+    wget https://github.com/ispc/ispc/releases/download/v1.17.0/ispc-v1.17.0-linux.tar.gz  &&\
+    tar -xvf ispc-v1.17.0-linux.tar.gz &&\
+    mv ispc-v1.17.0-linux/bin/ispc /usr/local/bin &&\
+    rm -rf ispc-v1.17.0-linux ispc-v1.17.0-linux.tar.gz
+
+RUN git clone https://github.com/pybind/pybind11.git /opt/pybind11/src && \
+    mkdir /opt/pybind11/build &&\
+    cd /opt/pybind11/build && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local ../src  &&\
+    make -j 4 install
+
+RUN pip install dask distributed dask_jobqueue
+RUN pip install "holoviews[recommended]"
+RUN pip install numba
+
+RUN apt-get -y install valgrind
+
+# RUN git clone http://cees-gitlab.stanford.edu/arustam/repository.dev.git /opt/repo &&\
+#     cd /opt/repo && git checkout d556b59b  && \
+#     cd /opt/repo/operator && mkdir build && cd build && \
+#     cmake -DSEPlib_DIR=/opt/SEP/cmake/SEP .. &&\
+#     make -j4 install &&\
+#     cd /opt/repo/conformal && mkdir build && cd build && \
+#     cmake -DSEPlib_DIR=/opt/SEP/cmake/SEP .. &&\
+#     make -j4 install &&\
+#     cd /opt/repo/propagator && mkdir build && cd build && \
+#     cmake -DSEPlib_DIR=/opt/SEP/cmake/SEP .. &&\
+#     make -j4 install
+
+# RUN cp -r /opt/repo/propagator/jupyter /home/wem-test-jupyter
+WORKDIR /home
+
+ENV PYTHONPATH=/opt/SEP/lib/python3.9
+# ENV PYTHONPATH=$PYTHONPATH:/opt/repo/conformal/lib/python:/opt/repo/operator/lib/python:/opt/repo/propagator/lib/python
+ENV PYTHONPATH=/opt/python-solver/GenericSolver/python:$PYTHONPATH
+ENV LD_LIBRARY_PATH=/opt/SEP/lib
+ENV PATH=$PATH:/opt/SEP/bin
+
+# EXPOSE 8888
+

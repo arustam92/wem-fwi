@@ -1,0 +1,22 @@
+
+  ns=1
+  osx=0
+  osz=0
+  dsx=0.01
+  nr=100
+  orx=0
+  orz=0
+  drx=0.01
+
+  prop=ssf
+  ntaylor=1
+  nref=1
+  tap=100
+  pad=100
+  fmin=1
+  fmax=0
+  nfreq=10
+  ngs=1
+  cmap=0
+  tau=0
+  onepass=0

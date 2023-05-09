@@ -1,0 +1,21 @@
+
+
+../bin/check_adjBorn.x:   bsc21964@login1   Tue Sep 10 15:15:47 2019
+	 	n1=1500 o1=0 d1=0.002 label1="sec" 
+
+	 	n2=300 o2=-500 d2=10 label2="" 
+
+	 	n3=40 o3=0 d3=10 label3="" 
+
+	 	n4=1 o4=0 d4=1 label4="none" 
+
+	 	n5=1 o5=0 d5=1 label5="none" 
+
+	 	n6=1 o6=0 d6=1 label6="none" 
+
+	 	n7=1 o7=0 d7=1 label7="none" 
+
+	 	n8=1 o8=0 d8=1 label8="none" 
+
+		sets next: in="/home/bsc21/bsc21964/scratch/wfld@"
+		data_format="xdr_float"

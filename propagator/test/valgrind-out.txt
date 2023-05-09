@@ -1,0 +1,1581 @@
+==956== Memcheck, a memory error detector
+==956== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==956== Using Valgrind-3.16.1-36d6727e1d-20200622X and LibVEX; rerun with -h for copyright info
+==956== Command: ../bin/memcheckWEM.x par=geometry.json
+==956== Parent PID: 1
+==956== 
+--956-- 
+--956-- Valgrind options:
+--956--    --leak-check=full
+--956--    --show-leak-kinds=all
+--956--    --track-origins=yes
+--956--    --verbose
+--956--    --log-file=valgrind-out.txt
+--956-- Contents of /proc/version:
+--956--   Linux version 5.15.49-linuxkit (root@buildkitsandbox) (gcc (Alpine 10.2.1_pre1) 10.2.1 20201203, GNU ld (GNU Binutils) 2.35.2) #1 SMP Tue Sep 13 07:51:46 UTC 2022
+--956-- 
+--956-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-sse3-ssse3-avx-bmi-f16c-rdrand
+--956-- Page sizes: currently 4096, max supported 4096
+--956-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--956-- Reading syms from /home/repo/propagator/bin/memcheckWEM.x
+--956-- Reading syms from /lib/x86_64-linux-gnu/ld-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/e2/5570740d590e5cb7b1a20d86332a8d1bb3b65f.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--956--   Considering /usr/lib/debug/.build-id/54/299c4aec0e5e5f3d7b8135341351d0e1dbfc64.debug ..
+--956--   .. build-id is valid
+--956--    object doesn't have a dynamic symbol table
+--956-- Scheduler: using generic scheduler lock implementation.
+--956-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==956== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-956-by-???-on-9fe17b01411f
+==956== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-956-by-???-on-9fe17b01411f
+==956== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-956-by-???-on-9fe17b01411f
+==956== 
+==956== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==956== don't want to do, unless you know exactly what you're doing,
+==956== or are doing some strange experiment):
+==956==   /usr/bin/vgdb --pid=956 ...command...
+==956== 
+==956== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==956==   /path/to/gdb ../bin/memcheckWEM.x
+==956== and then give GDB the following command
+==956==   target remote | /usr/bin/vgdb --pid=956
+==956== --pid is optional if only one valgrind process is running
+==956== 
+--956-- REDIR: 0x401fa70 (ld-linux-x86-64.so.2:strlen) redirected to 0x580ca5f2 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--956-- REDIR: 0x401f850 (ld-linux-x86-64.so.2:index) redirected to 0x580ca60c (vgPlain_amd64_linux_REDIR_FOR_index)
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--956--   Considering /usr/lib/debug/.build-id/f2/7641e081d3c37b410d7f31da4e2bf21040f356.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--956--   Considering /usr/lib/debug/.build-id/25/7cdcdf80e04f91ca9e3b185ee3b52995e89946.debug ..
+--956--   .. build-id is valid
+==956== WARNING: new redirection conflicts with existing -- ignoring it
+--956--     old: 0x0401fa70 (strlen              ) R-> (0000.0) 0x580ca5f2 vgPlain_amd64_linux_REDIR_FOR_strlen
+--956--     new: 0x0401fa70 (strlen              ) R-> (2007.0) 0x0483bda0 strlen
+--956-- REDIR: 0x401c290 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483cc90 (strcmp)
+--956-- REDIR: 0x401ffb0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4840740 (mempcpy)
+--956-- Reading syms from /opt/SEP/lib/libgenericCpp.so
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libtbb.so.2
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libm-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/1d/6ff6c4c69f3572486bc27b8290ee932b0b9f39.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /lib/x86_64-linux-gnu/libmvec-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/3f/837277e33204f55c86501a43b7c4a0e516dd03.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /lib/x86_64-linux-gnu/libgcc_s.so.1
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/25/5e355c207aba91a59ae1f808e3b4da443abf0c.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /lib/x86_64-linux-gnu/libc-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/b5/03275bf9fee51581fdceef97533b194035b4f7.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libtirpc.so.3.0.0
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/46/b3bf3f9b9eb092a5c0cf5575e89092f768054c.debug ..
+--956--   .. build-id is valid
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libcom_err.so.2.1
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libkeyutils.so.1.9
+--956--    object doesn't have a symbol table
+--956-- Reading syms from /lib/x86_64-linux-gnu/libresolv-2.31.so
+--956--   Considering /usr/lib/debug/.build-id/82/845af78df2c2866f440f3cae5a8103bd3b5acb.debug ..
+--956--   .. build-id is valid
+--956-- REDIR: 0x81a2120 (libc.so.6:memmove) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a1420 (libc.so.6:strncpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a25f0 (libc.so.6:strcasecmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a0b70 (libc.so.6:strcat) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a14b0 (libc.so.6:rindex) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a39f0 (libc.so.6:rawmemchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81bbd40 (libc.so.6:wmemchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81bb810 (libc.so.6:wcscmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2360 (libc.so.6:mempcpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2090 (libc.so.6:bcmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a1370 (libc.so.6:strncmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a0c90 (libc.so.6:strcmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2250 (libc.so.6:memset) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81bb7a0 (libc.so.6:wcschr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a1270 (libc.so.6:strnlen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a0de0 (libc.so.6:strcspn) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2640 (libc.so.6:strncasecmp) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a0d50 (libc.so.6:strcpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2790 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81bcfb0 (libc.so.6:wcsnlen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81bb880 (libc.so.6:wcscpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a1520 (libc.so.6:strpbrk) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a0c00 (libc.so.6:index) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a1200 (libc.so.6:strlen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a7db0 (libc.so.6:memrchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2690 (libc.so.6:strcasecmp_l) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2020 (libc.so.6:memchr) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81bb920 (libc.so.6:wcslen) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a17c0 (libc.so.6:strspn) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a2560 (libc.so.6:stpncpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a24d0 (libc.so.6:stpcpy) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a3a60 (libc.so.6:strchrnul) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a26e0 (libc.so.6:strncasecmp_l) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x8220280 (libc.so.6:__memcpy_chk) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81a12e0 (libc.so.6:strncat) redirected to 0x482e1b0 (_vgnU_ifunc_wrapper)
+--956-- REDIR: 0x81b0a60 (libc.so.6:__strrchr_sse2) redirected to 0x483b7f0 (__strrchr_sse2)
+--956-- REDIR: 0x81b0d50 (libc.so.6:__strlen_sse2) redirected to 0x483bce0 (__strlen_sse2)
+--956-- REDIR: 0x819d0f0 (libc.so.6:malloc) redirected to 0x4838710 (malloc)
+--956-- REDIR: 0x819d720 (libc.so.6:free) redirected to 0x4839940 (free)
+--956-- REDIR: 0x81bafa0 (libc.so.6:__memset_sse2_unaligned) redirected to 0x483f650 (memset)
+--956-- REDIR: 0x81b62a0 (libc.so.6:__strncpy_sse2_unaligned) redirected to 0x483c270 (__strncpy_sse2_unaligned)
+--956-- REDIR: 0x8279170 (libc.so.6:__memcmp_sse4_1) redirected to 0x483edf0 (__memcmp_sse4_1)
+--956-- REDIR: 0x81a95a0 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x483cb90 (strcmp)
+--956-- REDIR: 0x819de50 (libc.so.6:calloc) redirected to 0x483aab0 (calloc)
+--956-- REDIR: 0x81bab90 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x483cda0 (memcpy@GLIBC_2.2.5)
+--956-- REDIR: 0x7e410a0 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4838d80 (operator new(unsigned long))
+--956-- REDIR: 0x7e3f4a0 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x483a020 (operator delete(void*, unsigned long))
+--956-- REDIR: 0x81b5c70 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x483bdd0 (strcpy)
+--956-- REDIR: 0x81b0630 (libc.so.6:__strchr_sse2) redirected to 0x483b8d0 (__strchr_sse2)
+--956-- REDIR: 0x7e3f490 (libstdc++.so.6:operator delete(void*)) redirected to 0x4839e40 (operator delete(void*))
+--956-- REDIR: 0x8220720 (libc.so.6:__stpcpy_chk) redirected to 0x4840370 (__stpcpy_chk)
+--956-- REDIR: 0x81bab80 (libc.so.6:__memcpy_chk_sse2_unaligned) redirected to 0x4840820 (__memcpy_chk)
+--956-- Reading syms from /usr/lib/x86_64-linux-gnu/libtbbmalloc.so.2
+--956--    object doesn't have a symbol table
+--956-- REDIR: 0x81b7280 (libc.so.6:__stpcpy_sse2_unaligned) redirected to 0x483f210 (__stpcpy_sse2_unaligned)
+--956-- REDIR: 0x81bab70 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x48403c0 (mempcpy)
+--956-- REDIR: 0x81b0850 (libc.so.6:__strchrnul_sse2) redirected to 0x48402b0 (strchrnul)
+--956-- REDIR: 0x819d980 (libc.so.6:realloc) redirected to 0x483ad00 (realloc)
+--956-- REDIR: 0x81ab0a0 (libc.so.6:__memchr_sse2) redirected to 0x483cd10 (memchr)
+--956-- REDIR: 0x7e410f0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x48394a0 (operator new[](unsigned long))
+--956-- REDIR: 0x81a1c60 (libc.so.6:__GI_strstr) redirected to 0x4840990 (__strstr_sse2)
+--956-- REDIR: 0x81ab3d0 (libc.so.6:__rawmemchr_sse2) redirected to 0x48402e0 (rawmemchr)
+--956-- REDIR: 0x7e3f4c0 (libstdc++.so.6:operator delete[](void*)) redirected to 0x483a520 (operator delete[](void*))
+--956-- REDIR: 0x819dda0 (libc.so.6:memalign) redirected to 0x483b060 (memalign)
+--956-- memcheck GC: 1000 nodes, 8 survivors (0.8%)
+--956-- memcheck GC: 1000 nodes, 12 survivors (1.2%)
+--956-- memcheck GC: 1000 nodes, 12 survivors (1.2%)
+--956-- memcheck GC: 1000 nodes, 13 survivors (1.3%)
+--956-- memcheck GC: 1000 nodes, 16 survivors (1.6%)
+--956-- memcheck GC: 1000 nodes, 11 survivors (1.1%)
+--956-- memcheck GC: 1000 nodes, 13 survivors (1.3%)
+--956-- memcheck GC: 1000 nodes, 12 survivors (1.2%)
+--956-- memcheck GC: 1000 nodes, 11 survivors (1.1%)
+--956-- memcheck GC: 1000 nodes, 14 survivors (1.4%)
+--956-- memcheck GC: 1000 nodes, 15 survivors (1.5%)
+--956-- memcheck GC: 1000 nodes, 15 survivors (1.5%)
+--956-- memcheck GC: 1000 nodes, 12 survivors (1.2%)
+--956-- memcheck GC: 1000 nodes, 14 survivors (1.4%)
+--956-- memcheck GC: 1000 nodes, 15 survivors (1.5%)
+--956-- memcheck GC: 1000 nodes, 13 survivors (1.3%)
+==956== 
+==956== HEAP SUMMARY:
+==956==     in use at exit: 126,411 bytes in 1,432 blocks
+==956==   total heap usage: 202,695 allocs, 201,263 frees, 196,543,126 bytes allocated
+==956== 
+==956== Searching for pointers to 1,432 not-freed blocks
+==956== Checked 78,246,480 bytes
+==956== 
+==956== 8 bytes in 1 blocks are still reachable in loss record 1 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x82F70F8: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==956==    by 0x8307076: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==956==    by 0x82F5599: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==956==    by 0x400FFE1: call_init.part.0 (dl-init.c:72)
+==956==    by 0x40100E8: call_init (dl-init.c:30)
+==956==    by 0x40100E8: _dl_init (dl-init.c:119)
+==956==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+==956==    by 0x1: ???
+==956==    by 0x1FFF000DA2: ???
+==956==    by 0x1FFF000DB7: ???
+==956== 
+==956== 8 bytes in 1 blocks are still reachable in loss record 2 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A84391: yy_switch_to_buffer (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A84446: yy_scan_buffer (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A8459A: yy_scan_bytes (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A849B8: getpar_push_input (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A84A74: getpar_stack_par (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A80C7D: getpar_string_store (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A7F9F6: getch (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x499E5E3: SEP::sepParam::getString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4969CAA: SEP::ioModes::getParamObj() (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496BA32: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 3 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAAF4: fftwf_dft_indirect_transpose_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 4 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9F24: fftwf_dft_generic_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 5 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBB954: fftwf_dft_rader_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 6 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB6C34: fftwf_dft_bluestein_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 7 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAC24: fftwf_dft_nop_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 8 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0E14: fftwf_rdft_nop_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 9 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BECBD4: fftwf_dft_r2hc_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 10 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF2564: fftwf_rdft_dht_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 11 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BECDE4: fftwf_dht_r2hc_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 12 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF5274: fftwf_rdft2_nop_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 13 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF5684: fftwf_rdft2_rank0_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 14 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF71F4: fftwf_rdft2_rdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 15 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C76B14: fftwf_redft00e_r2hc_pad_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 16 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C76FC4: fftwf_rodft00e_r2hc_pad_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 17 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77D54: fftwf_reodft00e_splitradix_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 18 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C74784: fftwf_reodft010e_r2hc_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 19 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C755E4: fftwf_reodft11e_radix2_r2hc_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 16 bytes in 1 blocks are still reachable in loss record 20 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C76684: fftwf_reodft11e_r2hc_odd_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 18 bytes in 1 blocks are still reachable in loss record 21 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A7ED28: sepCommands::setup(int, char const**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x49A0344: SEP::sepParam::sepParam(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x497A993: SEP::sepIO::sepIO(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496B579: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 21 bytes in 1 blocks are indirectly lost in loss record 22 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A7ECFA: sepCommands::setup(int, char const**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x49A0344: SEP::sepParam::sepParam(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x497A993: SEP::sepIO::sepIO(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496B579: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 23 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBA364: fftwf_dft_indirect_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 24 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBA38B: fftwf_dft_indirect_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 25 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7374: fftwf_dft_buffered_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 26 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7398: fftwf_dft_buffered_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 27 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0D24: fftwf_rdft_indirect_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 28 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0D4B: fftwf_rdft_indirect_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 29 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE204: fftwf_rdft_buffered_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 30 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE228: fftwf_rdft_buffered_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 31 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEF384: fftwf_rdft_generic_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 32 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEF3A7: fftwf_rdft_generic_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 33 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BED9A4: fftwf_dht_rader_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 34 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BED9C7: fftwf_dht_rader_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 35 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF4E04: fftwf_rdft2_buffered_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 24 bytes in 1 blocks are still reachable in loss record 36 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF4E28: fftwf_rdft2_buffered_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 32 bytes in 1 blocks are still reachable in loss record 37 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEC7A7: fftwf_mksolver_hc2hc (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF08D6: fftwf_hc2hc_generic_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 37 (16 direct, 21 indirect) bytes in 1 blocks are definitely lost in loss record 38 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A7EC83: sepCommands::setup(int, char const**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x49A0344: SEP::sepParam::sepParam(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x497A993: SEP::sepIO::sepIO(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496B579: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 39 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A865FE: alloc (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A83D91: getpar_hash_store (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A80C35: getpar_string_store (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A7F9F6: getch (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x499E5E3: SEP::sepParam::getString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4969CAA: SEP::ioModes::getParamObj() (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496BA32: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 40 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBC110: fftwf_dft_vrank_geq1_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 41 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBC13F: fftwf_dft_vrank_geq1_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 42 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF2920: fftwf_rdft_vrank_geq1_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 43 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF294F: fftwf_rdft_vrank_geq1_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 44 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF65D0: fftwf_rdft2_vrank_geq1_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 40 bytes in 1 blocks are still reachable in loss record 45 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF65FF: fftwf_rdft2_vrank_geq1_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 44 bytes in 1 blocks are still reachable in loss record 46 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x401C26A: strdup (strdup.c:42)
+==956==    by 0x40091FB: _dl_map_object (dl-load.c:2168)
+==956==    by 0x4013D41: dl_open_worker (dl-open.c:513)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x40138F9: _dl_open (dl-open.c:837)
+==956==    by 0x835E257: dlopen_doit (dlopen.c:66)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x824CB4E: _dl_catch_error (dl-error-skeleton.c:227)
+==956==    by 0x835EA64: _dlerror_run (dlerror.c:170)
+==956==    by 0x835E2E3: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==956==    by 0x7B5A42F: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956== 
+==956== 44 bytes in 1 blocks are still reachable in loss record 47 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x400BFB7: _dl_new_object (dl-object.c:196)
+==956==    by 0x4007255: _dl_map_object_from_fd (dl-load.c:997)
+==956==    by 0x4009274: _dl_map_object (dl-load.c:2236)
+==956==    by 0x4013D41: dl_open_worker (dl-open.c:513)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x40138F9: _dl_open (dl-open.c:837)
+==956==    by 0x835E257: dlopen_doit (dlopen.c:66)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x824CB4E: _dl_catch_error (dl-error-skeleton.c:227)
+==956==    by 0x835EA64: _dlerror_run (dlerror.c:170)
+==956==    by 0x835E2E3: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==956== 
+==956== 48 bytes in 1 blocks are still reachable in loss record 48 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB8BE2: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB8C3D: fftwf_ct_generic_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956== 
+==956== 48 bytes in 1 blocks are still reachable in loss record 49 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB8BE2: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 48 bytes in 1 blocks are still reachable in loss record 50 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB1925: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78043: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C660: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x120A97: SEP::extWEM::forward(std::vector<std::shared_ptr<SEP::complex3DReg>, std::allocator<std::shared_ptr<SEP::complex3DReg> > > const&, std::shared_ptr<SEP::float3DReg>, bool) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x1198C3: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 64 bytes in 2 blocks are still reachable in loss record 51 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE4DC: fftwf_mksolver_rdft_r2r_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF099E: fftwf_kr2r_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE27F: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 72 bytes in 3 blocks are still reachable in loss record 52 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF4284: fftwf_rdft_vrank3_transpose_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 120 bytes in 3 blocks are still reachable in loss record 53 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBBCFC: fftwf_dft_rank_geq2_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 120 bytes in 3 blocks are still reachable in loss record 54 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF209C: fftwf_rdft_rank_geq2_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 120 bytes in 3 blocks are still reachable in loss record 55 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF5B5C: fftwf_rdft2_rank_geq2_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 128 bytes in 1 blocks are still reachable in loss record 56 of 102
+==956==    at 0x483950F: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==956==    by 0x7B66BE3: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B5A70A: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B66DFB: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B733FF: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B68CC4: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B68CD8: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B66FBC: tbb::internal::allocate_root_with_context_proxy::allocate(unsigned long) const (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x49F4112: SEP::complexHyper::set(std::complex<float>) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x11912A: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 160 bytes in 20 blocks are still reachable in loss record 57 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A865FE: alloc (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A84FD8: getpar_lexscan (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A85FE4: getpar_scan (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A7F9F6: getch (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x499E5E3: SEP::sepParam::getString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4969CAA: SEP::ioModes::getParamObj() (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496BA32: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 160 bytes in 20 blocks are still reachable in loss record 58 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A865FE: alloc (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A84F36: getpar_lexscan (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A85FE4: getpar_scan (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A7F9F6: getch (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x499E5E3: SEP::sepParam::getString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4969CAA: SEP::ioModes::getParamObj() (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496BA32: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 216 bytes in 1 blocks are still reachable in loss record 59 of 102
+==956==    at 0x483AB65: calloc (vg_replace_malloc.c:760)
+==956==    by 0x40116B6: _dl_check_map_versions (dl-version.c:274)
+==956==    by 0x4013DF5: dl_open_worker (dl-open.c:577)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x40138F9: _dl_open (dl-open.c:837)
+==956==    by 0x835E257: dlopen_doit (dlopen.c:66)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x824CB4E: _dl_catch_error (dl-error-skeleton.c:227)
+==956==    by 0x835EA64: _dlerror_run (dlerror.c:170)
+==956==    by 0x835E2E3: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==956==    by 0x7B5A42F: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B5A5E5: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956== 
+==956== 288 bytes in 1 blocks are still reachable in loss record 60 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB28FA: fftwf_mkplanner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B878: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x121596: SEP::extWEM::extWEM(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x11966C: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 360 bytes in 9 blocks are still reachable in loss record 61 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF1CEF: fftwf_rdft_rank0_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE252: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 384 bytes in 6 blocks are still reachable in loss record 62 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB86AF: fftwf_regsolver_ct_directwsq (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73D1: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 512 bytes in 8 blocks are still reachable in loss record 63 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB86AF: fftwf_regsolver_ct_directwsq (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73FE: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 512 bytes in 8 blocks are still reachable in loss record 64 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB86AF: fftwf_regsolver_ct_directwsq (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 640 bytes in 2 blocks are possibly lost in loss record 65 of 102
+==956==    at 0x483AB65: calloc (vg_replace_malloc.c:760)
+==956==    by 0x4012D16: allocate_dtv (dl-tls.c:343)
+==956==    by 0x4012D16: _dl_allocate_tls (dl-tls.c:589)
+==956==    by 0x80FCB81: allocate_stack (allocatestack.c:622)
+==956==    by 0x80FCB81: pthread_create@@GLIBC_2.2.5 (pthread_create.c:660)
+==956==    by 0x7B65D2C: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x49F0D8B: tbb::interface9::internal::start_for<tbb::blocked_range<long long>, SEP::complexHyper::set(std::complex<float>)::{lambda(tbb::blocked_range<long long> const&)#1}, tbb::static_partitioner const>::execute() (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x7B71494: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B717CA: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B6F11F: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x49F4190: SEP::complexHyper::set(std::complex<float>) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x11912A: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 696 bytes in 1 blocks are still reachable in loss record 66 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB1925: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB1C57: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB27AB: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77DB7: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78014: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x120A97: SEP::extWEM::forward(std::vector<std::shared_ptr<SEP::complex3DReg>, std::allocator<std::shared_ptr<SEP::complex3DReg> > > const&, std::shared_ptr<SEP::float3DReg>, bool) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x11973B: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 760 bytes in 19 blocks are still reachable in loss record 67 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9ACC: fftwf_mksolver_dft_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAB57: fftwf_kdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73D1: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 760 bytes in 19 blocks are still reachable in loss record 68 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9B0C: fftwf_mksolver_dft_directbuf (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAB6D: fftwf_kdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73D1: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 800 bytes in 20 blocks are still reachable in loss record 69 of 102
+==956==    at 0x483877F: malloc (vg_replace_malloc.c:307)
+==956==    by 0x4A865FE: alloc (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A83D91: getpar_hash_store (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A8600E: getpar_scan (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4A7F9F6: getch (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x499E5E3: SEP::sepParam::getString(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x4969CAA: SEP::ioModes::getParamObj() (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x496BA32: SEP::ioModes::setup(int, char**) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x118CEF: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 960 bytes in 3 blocks are possibly lost in loss record 70 of 102
+==956==    at 0x483AB65: calloc (vg_replace_malloc.c:760)
+==956==    by 0x4012D16: allocate_dtv (dl-tls.c:343)
+==956==    by 0x4012D16: _dl_allocate_tls (dl-tls.c:589)
+==956==    by 0x80FCB81: allocate_stack (allocatestack.c:622)
+==956==    by 0x80FCB81: pthread_create@@GLIBC_2.2.5 (pthread_create.c:660)
+==956==    by 0x7B65D2C: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B66016: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B660B8: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x80FBEA6: start_thread (pthread_create.c:477)
+==956==    by 0x8212A2E: clone (clone.S:95)
+==956== 
+==956== 1,152 bytes in 18 blocks are still reachable in loss record 71 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8D8C: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE2A6: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,152 bytes in 18 blocks are still reachable in loss record 72 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8DBD: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE2A6: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,152 bytes in 18 blocks are still reachable in loss record 73 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8D8C: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,152 bytes in 18 blocks are still reachable in loss record 74 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8DBD: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,152 bytes in 36 blocks are still reachable in loss record 75 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF51AC: fftwf_mksolver_rdft2_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0973: fftwf_kr2c_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,152 bytes in 36 blocks are still reachable in loss record 76 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF51AC: fftwf_mksolver_rdft2_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0973: fftwf_kr2c_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,228 bytes in 1 blocks are still reachable in loss record 77 of 102
+==956==    at 0x483AB65: calloc (vg_replace_malloc.c:760)
+==956==    by 0x400BCDF: _dl_new_object (dl-object.c:89)
+==956==    by 0x4007255: _dl_map_object_from_fd (dl-load.c:997)
+==956==    by 0x4009274: _dl_map_object (dl-load.c:2236)
+==956==    by 0x4013D41: dl_open_worker (dl-open.c:513)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x40138F9: _dl_open (dl-open.c:837)
+==956==    by 0x835E257: dlopen_doit (dlopen.c:66)
+==956==    by 0x824CA8F: _dl_catch_exception (dl-error-skeleton.c:208)
+==956==    by 0x824CB4E: _dl_catch_error (dl-error-skeleton.c:227)
+==956==    by 0x835EA64: _dlerror_run (dlerror.c:170)
+==956==    by 0x835E2E3: dlopen@@GLIBC_2.2.5 (dlopen.c:87)
+==956== 
+==956== 1,288 bytes in 23 blocks are still reachable in loss record 78 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEC7A7: fftwf_mksolver_hc2hc (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEF519: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEFEA3: fftwf_regsolver_hc2hc_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956== 
+==956== 1,288 bytes in 23 blocks are still reachable in loss record 79 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEC7A7: fftwf_mksolver_hc2hc (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEF519: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,288 bytes in 23 blocks are still reachable in loss record 80 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEC7A7: fftwf_mksolver_hc2hc (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEF519: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEFEA3: fftwf_regsolver_hc2hc_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956== 
+==956== 1,288 bytes in 23 blocks are still reachable in loss record 81 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEC7A7: fftwf_mksolver_hc2hc (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEF519: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,440 bytes in 36 blocks are still reachable in loss record 82 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEEDCC: fftwf_mksolver_rdft_r2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0947: fftwf_kr2c_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,440 bytes in 36 blocks are still reachable in loss record 83 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEEE0C: fftwf_mksolver_rdft_r2c_directbuf (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF095D: fftwf_kr2c_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,440 bytes in 36 blocks are still reachable in loss record 84 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEEDCC: fftwf_mksolver_rdft_r2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF0947: fftwf_kr2c_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,440 bytes in 36 blocks are still reachable in loss record 85 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEEE0C: fftwf_mksolver_rdft_r2c_directbuf (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF095D: fftwf_kr2c_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,792 bytes in 28 blocks are still reachable in loss record 86 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8D8C: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,792 bytes in 28 blocks are still reachable in loss record 87 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8DBD: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE261: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,792 bytes in 28 blocks are still reachable in loss record 88 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8D8C: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,792 bytes in 28 blocks are still reachable in loss record 89 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF7C67: fftwf_mksolver_hc2c (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BF8DBD: fftwf_regsolver_hc2c_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,800 bytes in 25 blocks are still reachable in loss record 90 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7B60: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB83ED: fftwf_regsolver_ct_directw (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73D1: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956== 
+==956== 1,800 bytes in 25 blocks are still reachable in loss record 91 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7B60: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73D1: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 1,960 bytes in 35 blocks are still reachable in loss record 92 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB91AB: fftwf_ct_genericbuf_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73C2: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 2,680 bytes in 67 blocks are still reachable in loss record 93 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9ACC: fftwf_mksolver_dft_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAB57: fftwf_kdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73FE: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 2,680 bytes in 67 blocks are still reachable in loss record 94 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9B0C: fftwf_mksolver_dft_directbuf (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAB6D: fftwf_kdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73FE: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 2,680 bytes in 67 blocks are still reachable in loss record 95 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9ACC: fftwf_mksolver_dft_direct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAB57: fftwf_kdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 2,680 bytes in 67 blocks are still reachable in loss record 96 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB9B0C: fftwf_mksolver_dft_directbuf (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BBAB6D: fftwf_kdft_register (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 3,096 bytes in 3 blocks are still reachable in loss record 97 of 102
+==956==    at 0x483950F: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==956==    by 0x7B6B7ED: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B6B9B6: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B6A22E: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B68D9E: ??? (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x7B67220: tbb::internal::get_initial_auto_partitioner_divisor() (in /usr/lib/x86_64-linux-gnu/libtbb.so.2)
+==956==    by 0x49F4156: SEP::complexHyper::set(std::complex<float>) (in /opt/SEP/lib/libgenericCpp.so)
+==956==    by 0x11912A: main (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 6,840 bytes in 95 blocks are still reachable in loss record 98 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7B60: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB83ED: fftwf_regsolver_ct_directw (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73FE: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956== 
+==956== 6,840 bytes in 95 blocks are still reachable in loss record 99 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7B60: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB73FE: fftwf_dft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 6,840 bytes in 95 blocks are still reachable in loss record 100 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7B60: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB83ED: fftwf_regsolver_ct_directw (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 6,840 bytes in 95 blocks are still reachable in loss record 101 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3F18: fftwf_mksolver (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7971: fftwf_mksolver_ct (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB7B60: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78158: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== 44,384 bytes in 1 blocks are still reachable in loss record 102 of 102
+==956==    at 0x483B0F8: memalign (vg_replace_malloc.c:907)
+==956==    by 0x7BB0044: fftwf_malloc_plain (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB175E: ??? (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BB3FA7: fftwf_solvtab_exec (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7BEE270: fftwf_rdft_conf_standard (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C78160: fftwf_configure_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B887: fftwf_the_planner (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C77EF9: fftwf_mkapiplan (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x7C7B460: fftwf_plan_many_dft (in /usr/lib/x86_64-linux-gnu/libfftw3f.so.3.5.8)
+==956==    by 0x17C621: SEP::FFT1::FFT1(std::shared_ptr<SEP::floatHyper>, std::shared_ptr<SEP::complexHyper>, int, int) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x12AD35: SEP::PropParam::calcPropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956==    by 0x135647: SEP::PropParam::PropParam(std::shared_ptr<SEP::float1DReg>, std::shared_ptr<SEP::hypercube>, std::shared_ptr<SEP::paramObj>) (in /home/repo/propagator/bin/memcheckWEM.x)
+==956== 
+==956== LEAK SUMMARY:
+==956==    definitely lost: 16 bytes in 1 blocks
+==956==    indirectly lost: 21 bytes in 1 blocks
+==956==      possibly lost: 1,600 bytes in 5 blocks
+==956==    still reachable: 124,774 bytes in 1,425 blocks
+==956==                       of which reachable via heuristic:
+==956==                         newarray           : 3,096 bytes in 3 blocks
+==956==         suppressed: 0 bytes in 0 blocks
+==956== 
+==956== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

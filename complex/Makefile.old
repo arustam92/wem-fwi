@@ -1,0 +1,30 @@
+TARGET = libcomplexHyper.a
+
+SRCDIR := ./src
+BIN := ./bin
+BUILDDIR := ./build
+
+CC := g++ -fopenmp -std=c++11 -fpic
+SRCEXT:=cc
+
+SEPVECINC := -I/opt/genericIO/include -I/opt/SEP/include -I/opt/hypercube/include -I/opt/sepVector/include
+SEPVECLIBS := -L/opt/hypercube/lib -L/opt/sepVector/lib -L/opt/genericIO/lib -L/opt/SEP/lib -lgenericCpp -lsepVector -lhypercube -lsep3d -lsep
+
+MYINC := -I include
+MYLIB := lib
+
+SOURCES := $(shell find $(SRCDIR) -type f -name "*.$(SRCEXT)")
+OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(BUILDDIR)
+	@echo " $(CC) $(SEPVECINC) $(MYINC) -c -o $@ $<"; $(CC) $(SEPVECINC) $(MYINC) $< $(SEPVECLIBS) -c -o$@
+
+$(TARGET): $(OBJECTS)
+	@mkdir -p $(MYLIB)
+	@echo " Creating static library...$(OBJECTS)"
+	ar crf $(MYLIB)/$@ $?
+
+main.x: main.cpp
+	$(CC) $(SEPVECINC) $(MYINC) $< $(SEPVECLIBS) -o$@

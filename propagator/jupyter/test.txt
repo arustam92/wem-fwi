@@ -1,0 +1,568 @@
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-15T20-55-57.619805/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-15T20-56-48.993698/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-15T22-53-09.710637/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-15T23-19-08.872344/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-15T23-20-50.700146/
+##########################################################################################
+
+iter = 000, obj = 4.12253e+07, resnorm = 9.08e+03, gradnorm = 5.25e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.74e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T00-45-22.494886/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T00-46-19.416018/
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T17-36-03.816604/
+##########################################################################################
+
+iter = 000, obj = 3.18363e+11, resnorm = 7.98e+05, gradnorm = 4.48e+18, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.75e-26
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T17-38-27.437737/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T17-39-13.953090/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T17-40-28.183430/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T17-41-55.329405/
+##########################################################################################
+
+iter = 000, obj = 3.18363e+11, resnorm = 7.98e+05, gradnorm = 4.48e+18, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.75e-26
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T18-17-43.366094/
+##########################################################################################
+
+iter = 000, obj = 3.18363e+11, resnorm = 7.98e+05, gradnorm = 4.48e+18, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.75e-26
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T18-20-12.350248/
+##########################################################################################
+
+iter = 000, obj = 3.18363e+11, resnorm = 7.98e+05, gradnorm = 4.48e+18, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.75e-26
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-16T22-45-01.267227/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-29-32.652230/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-36-55.201422/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-38-58.785139/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-49-33.420324/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-51-15.718469/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-53-39.854788/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-54-26.605883/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-55-46.242677/
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T00-56-11.887501/
+##########################################################################################
+
+iter = 000, obj = 2.86287e+07, resnorm = 7.57e+03, gradnorm = 3.65e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.51e-24
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 1.32888e+13 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T20-01-28.145258/
+##########################################################################################
+
+iter = 000, obj = 2.50765e+09, resnorm = 7.08e+04, gradnorm = 6.32e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=3.38e-23
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T20-04-12.954418/
+##########################################################################################
+
+iter = 000, obj = 2.50765e+09, resnorm = 7.08e+04, gradnorm = 6.32e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=3.38e-23
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T20-25-45.205501/
+##########################################################################################
+
+iter = 000, obj = 3.61101e+09, resnorm = 8.50e+04, gradnorm = 9.11e+15, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.35e-23
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T20-27-03.386017/
+##########################################################################################
+
+iter = 000, obj = 2.85853e+09, resnorm = 7.56e+04, gradnorm = 5.99e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.01e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T20-31-19.544707/
+##########################################################################################
+
+iter = 000, obj = 2.85853e+09, resnorm = 7.56e+04, gradnorm = 5.12e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.04e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 2.34105e+12 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-17T20-38-35.138173/
+##########################################################################################
+
+iter = 000, obj = 2.85853e+09, resnorm = 7.56e+04, gradnorm = 5.12e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.04e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 2.34105e+12 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-18T19-13-38.023729/
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-20T17-20-56.304700/
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-20T18-04-11.459412/
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-20T18-04-55.166064/
+##########################################################################################
+
+iter = 000, obj = 2.85853e+09, resnorm = 7.56e+04, gradnorm = 5.12e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.04e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 2.34105e+12 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-21T18-51-23.634187/
+##########################################################################################
+
+iter = 000, obj = 2.85853e+09, resnorm = 7.56e+04, gradnorm = 5.12e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.04e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+	Objective function value of 2.34105e+12 (feval = 2)
+	The step-length value is at the lower bound (alpha_min) of 1.00e-20
+Stepper couldn't find a proper step size, will terminate solver
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file end
+##########################################################################################
+
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-23T17-12-28.378000/
+##########################################################################################
+
+iter = 000, obj = 2.85853e+09, resnorm = 7.56e+04, gradnorm = 5.99e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=2.01e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-23T17-17-36.044668/
+##########################################################################################
+
+iter = 000, obj = 3.62629e+09, resnorm = 8.52e+04, gradnorm = 6.71e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.89e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm
+##########################################################################################
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm log file
+Restart folder: /tmp/restart_2023-03-23T21-00-36.308810/
+##########################################################################################
+
+iter = 000, obj = 3.57639e+09, resnorm = 8.46e+04, gradnorm = 6.61e+14, feval = 1, geval = 1
+Appplying inverse Hessian estimate
+Done applying inverse Hessian estimate
+CVSRCH STEPPER BY STEP-LENGTH BRACKETING
+xtol=1.00e-16 ftol=1.00e-04 gtol=9.50e-01 alpha_min=1.00e-20 alpha_max=1.00e+20 maxfev=20 xtrapf=4.00e+00
+	initial-steplength=1.92e-21
+	Current testing point (alpha=1.00e-20): m_current+alpha*dm

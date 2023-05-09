@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --job-name="install"
+#SBATCH --cpus-per-task=8
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --error=install.err
+#SBATCH --output=install.out
+#SBATCH --time=00:10:00
+
+cd $SLURM_SUBMIT_DIR
+singularity exec $HOME/singularity/generic_newest.sif sbatch/install.sh
